@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE51089-F62F-44F7-876C-BCE66D893DA5}|PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj|c:\\users\\timeware\\source\\repos\\portalnoticiasca\\portalnoticiasca.application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE51089-F62F-44F7-876C-BCE66D893DA5}|PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj|solutionrelative:portalnoticiasca.application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE51089-F62F-44F7-876C-BCE66D893DA5}|PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj|c:\\users\\timeware\\source\\repos\\portalnoticiasca\\portalnoticiasca.application\\interfaces\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE51089-F62F-44F7-876C-BCE66D893DA5}|PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj|solutionrelative:portalnoticiasca.application\\interfaces\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{722949A0-5647-48E7-B0E4-DAC5B740E212}|PortalNoticiasCA.Domain\\PortalNoticiasCA.Domain.csproj|c:\\users\\timeware\\source\\repos\\portalnoticiasca\\portalnoticiasca.domain\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{722949A0-5647-48E7-B0E4-DAC5B740E212}|PortalNoticiasCA.Domain\\PortalNoticiasCA.Domain.csproj|solutionrelative:portalnoticiasca.domain\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE51089-F62F-44F7-876C-BCE66D893DA5}|PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj|c:\\users\\timeware\\source\\repos\\portalnoticiasca\\portalnoticiasca.application\\dtos\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FE51089-F62F-44F7-876C-BCE66D893DA5}|PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj|solutionrelative:portalnoticiasca.application\\dtos\\dtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3FE51089-F62F-44F7-876C-BCE66D893DA5}|PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj|c:\\users\\timeware\\source\\repos\\portalnoticiasca\\portalnoticiasca.application\\portalnoticiasca.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3FE51089-F62F-44F7-876C-BCE66D893DA5}|PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj|solutionrelative:portalnoticiasca.application\\portalnoticiasca.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4BCAC5F-9C89-4352-8DB8-4796A3014C54}|PortalNoticiasCA.Tests\\PortalNoticiasCA.Tests.csproj|c:\\users\\timeware\\source\\repos\\portalnoticiasca\\portalnoticiasca.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4BCAC5F-9C89-4352-8DB8-4796A3014C54}|PortalNoticiasCA.Tests\\PortalNoticiasCA.Tests.csproj|solutionrelative:portalnoticiasca.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 251,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Application\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "PortalNoticiasCA.Application\\Services\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Application\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "PortalNoticiasCA.Application\\Services\\UsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:28:52.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IUsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Application\\Interfaces\\IUsuarioService.cs",
+              "RelativeDocumentMoniker": "PortalNoticiasCA.Application\\Interfaces\\IUsuarioService.cs",
+              "ToolTip": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Application\\Interfaces\\IUsuarioService.cs",
+              "RelativeToolTip": "PortalNoticiasCA.Application\\Interfaces\\IUsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:16:40.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PortalNoticiasCA.Application",
+              "DocumentMoniker": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj",
+              "RelativeDocumentMoniker": "PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj",
+              "ToolTip": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj",
+              "RelativeToolTip": "PortalNoticiasCA.Application\\PortalNoticiasCA.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-18T15:15:56.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DTOs.cs",
+              "DocumentMoniker": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Application\\DTOs\\DTOs.cs",
+              "RelativeDocumentMoniker": "PortalNoticiasCA.Application\\DTOs\\DTOs.cs",
+              "ToolTip": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Application\\DTOs\\DTOs.cs",
+              "RelativeToolTip": "PortalNoticiasCA.Application\\DTOs\\DTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:14:39.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Domain\\Entities\\Usuario.cs",
+              "RelativeDocumentMoniker": "PortalNoticiasCA.Domain\\Entities\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Domain\\Entities\\Usuario.cs",
+              "RelativeToolTip": "PortalNoticiasCA.Domain\\Entities\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T14:43:13.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "PortalNoticiasCA.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\Timeware\\source\\repos\\PortalNoticiasCA\\PortalNoticiasCA.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "PortalNoticiasCA.Tests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T14:40:51.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
