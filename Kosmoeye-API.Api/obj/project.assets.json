@@ -88,6 +88,53 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Kosmoeye-Api.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Kosmoeye-Api.Domain": "1.0.0",
+          "Kosmoeye-Api.Exception": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Kosmoeye-Api.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Kosmoeye-Api.Application.dll": {}
+        }
+      },
+      "Kosmoeye-Api.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Kosmoeye-Api.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Kosmoeye-Api.Domain.dll": {}
+        }
+      },
+      "Kosmoeye-Api.Exception/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Kosmoeye-Api.Exception.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Kosmoeye-Api.Exception.dll": {}
+        }
+      },
+      "Kosmoeye-Api.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Kosmoeye-Api.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Kosmoeye-Api.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Kosmoeye-Api.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -439,10 +486,33 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Kosmoeye-Api.Application/1.0.0": {
+      "type": "project",
+      "path": "../Kosmoeye-Api.Application/Kosmoeye-Api.Application.csproj",
+      "msbuildProject": "../Kosmoeye-Api.Application/Kosmoeye-Api.Application.csproj"
+    },
+    "Kosmoeye-Api.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Kosmoeye-Api.Domain/Kosmoeye-Api.Domain.csproj",
+      "msbuildProject": "../Kosmoeye-Api.Domain/Kosmoeye-Api.Domain.csproj"
+    },
+    "Kosmoeye-Api.Exception/1.0.0": {
+      "type": "project",
+      "path": "../Kosmoeye-Api.Exception/Kosmoeye-Api.Exception.csproj",
+      "msbuildProject": "../Kosmoeye-Api.Exception/Kosmoeye-Api.Exception.csproj"
+    },
+    "Kosmoeye-Api.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Kosmoeye-Api.Infrastructure/Kosmoeye-Api.Infrastructure.csproj",
+      "msbuildProject": "../Kosmoeye-Api.Infrastructure/Kosmoeye-Api.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Kosmoeye-Api.Application >= 1.0.0",
+      "Kosmoeye-Api.Exception >= 1.0.0",
+      "Kosmoeye-Api.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -477,7 +547,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Application\\Kosmoeye-Api.Application.csproj": {
+              "projectPath": "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Application\\Kosmoeye-Api.Application.csproj"
+            },
+            "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Exception\\Kosmoeye-Api.Exception.csproj": {
+              "projectPath": "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Exception\\Kosmoeye-Api.Exception.csproj"
+            },
+            "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Infrastructure\\Kosmoeye-Api.Infrastructure.csproj": {
+              "projectPath": "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Infrastructure\\Kosmoeye-Api.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

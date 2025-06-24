@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kosmoeye-Api.Exception")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba9c8ee71220e7a39253c8f8965c44ec59ac8c4a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a686d8edd3bab2aea21653d0fc79276ae3ce5106")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kosmoeye-Api.Exception")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kosmoeye-Api.Exception")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

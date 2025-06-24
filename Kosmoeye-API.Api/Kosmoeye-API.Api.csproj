@@ -11,4 +11,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Kosmoeye-Api.Application\Kosmoeye-Api.Application.csproj" />
+    <ProjectReference Include="..\Kosmoeye-Api.Exception\Kosmoeye-Api.Exception.csproj" />
+    <ProjectReference Include="..\Kosmoeye-Api.Infrastructure\Kosmoeye-Api.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

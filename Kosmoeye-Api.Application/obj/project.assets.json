@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Kosmoeye-Api.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Kosmoeye-Api.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Kosmoeye-Api.Domain.dll": {}
+        }
+      },
+      "Kosmoeye-Api.Exception/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Kosmoeye-Api.Exception.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Kosmoeye-Api.Exception.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Kosmoeye-Api.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Kosmoeye-Api.Domain/Kosmoeye-Api.Domain.csproj",
+      "msbuildProject": "../Kosmoeye-Api.Domain/Kosmoeye-Api.Domain.csproj"
+    },
+    "Kosmoeye-Api.Exception/1.0.0": {
+      "type": "project",
+      "path": "../Kosmoeye-Api.Exception/Kosmoeye-Api.Exception.csproj",
+      "msbuildProject": "../Kosmoeye-Api.Exception/Kosmoeye-Api.Exception.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Kosmoeye-Api.Domain >= 1.0.0",
+      "Kosmoeye-Api.Exception >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\rodri\\.nuget\\packages\\": {},
@@ -38,7 +73,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Domain\\Kosmoeye-Api.Domain.csproj": {
+              "projectPath": "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Domain\\Kosmoeye-Api.Domain.csproj"
+            },
+            "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Exception\\Kosmoeye-Api.Exception.csproj": {
+              "projectPath": "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Exception\\Kosmoeye-Api.Exception.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
