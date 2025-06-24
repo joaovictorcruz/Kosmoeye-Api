@@ -1,6 +1,0 @@
-@PortalNoticiasCA.API_HostAddress = http://localhost:5227
-
-GET {{PortalNoticiasCA.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
