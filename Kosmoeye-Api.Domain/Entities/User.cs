@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Kosmoeye_Api.Domain.Entities
+{
+    public class User
+    {
+        public Guid Id { get; private set; } = Guid.NewGuid();  
+        public string Username { get; private set; }
+        public string Email { get; private set; }
+        public string PasswordHash { get; private set; }
+        public string? Bio { get; private set; }
+        public string? AvatarUrl{ get; private set; }
+
+
+        private User() { } //ef precisa de um construtor vazio
+    
+        
+        public User(string username, string email, string passwordHash)
+        {
+            Username = username;
+            Email = email;  
+            PasswordHash = passwordHash;
+
+        }
+        public void UpdateProfile(string? bio, string? avatarUrl)
+        {
+            Bio = bio;
+            AvatarUrl = avatarUrl;
+        }
+
+        public void ChangePassword(string newPasswordHash)
+        {
+            PasswordHash = newPasswordHash;
+        }
+    }
+}
