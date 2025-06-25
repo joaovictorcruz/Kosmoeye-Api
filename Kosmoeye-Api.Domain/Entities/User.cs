@@ -13,7 +13,7 @@ namespace Kosmoeye_Api.Domain.Entities
         public string Email { get; private set; }
         public string PasswordHash { get; private set; }
         public string? Bio { get; private set; }
-        public string? AvatarUrl{ get; private set; }
+        public string? PictureUrl{ get; private set; }
 
 
         private User() { } //ef precisa de um construtor vazio
@@ -26,10 +26,10 @@ namespace Kosmoeye_Api.Domain.Entities
             PasswordHash = passwordHash;
 
         }
-        public void UpdateProfile(string? bio, string? avatarUrl)
+        public void UpdateProfile(string? bio, string? pictureUrl)
         {
             Bio = bio;
-            AvatarUrl = avatarUrl;
+            PictureUrl = pictureUrl;
         }
 
         public void ChangePassword(string newPasswordHash)
