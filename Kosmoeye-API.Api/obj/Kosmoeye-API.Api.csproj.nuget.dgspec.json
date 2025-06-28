@@ -35,9 +35,6 @@
               "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Application\\Kosmoeye-Api.Application.csproj": {
                 "projectPath": "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Application\\Kosmoeye-Api.Application.csproj"
               },
-              "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Exception\\Kosmoeye-Api.Exception.csproj": {
-                "projectPath": "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Exception\\Kosmoeye-Api.Exception.csproj"
-              },
               "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Infrastructure\\Kosmoeye-Api.Infrastructure.csproj": {
                 "projectPath": "C:\\desenvolvimento\\KOSMOEYE-API\\Kosmoeye-Api.Infrastructure\\Kosmoeye-Api.Infrastructure.csproj"
               }
@@ -60,6 +57,12 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -339,6 +342,24 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
