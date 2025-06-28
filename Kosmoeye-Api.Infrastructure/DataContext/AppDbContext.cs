@@ -15,6 +15,11 @@ namespace Kosmoeye_Api.Infrastructure.DataContext
 
         }
         public DbSet<User> Users => Set<User>();
+        public DbSet<Artwork> Artworks => Set<Artwork>();
+        public DbSet<FavoriteArtwork> FavoriteArtworks => Set<FavoriteArtwork>();
+        public DbSet<Like> Likes => Set<Like>();
+        public DbSet<Comment> Comments => Set<Comment>();
+        public DbSet<Follow> Follows => Set<Follow>();
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

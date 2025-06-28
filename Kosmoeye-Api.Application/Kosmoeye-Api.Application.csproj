@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kosmoeye-Api.Domain\Kosmoeye-Api.Domain.csproj" />
-    <ProjectReference Include="..\Kosmoeye-Api.Exception\Kosmoeye-Api.Exception.csproj" />
   </ItemGroup>
 
 </Project>
