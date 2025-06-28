@@ -572,8 +572,7 @@
       "System.Threading.Channels/6.0.0": {},
       "Kosmoeye-Api.Application/1.0.0": {
         "dependencies": {
-          "Kosmoeye-Api.Domain": "1.0.0",
-          "Kosmoeye-Api.Exception": "1.0.0"
+          "Kosmoeye-Api.Domain": "1.0.0"
         },
         "runtime": {
           "Kosmoeye-Api.Application.dll": {
