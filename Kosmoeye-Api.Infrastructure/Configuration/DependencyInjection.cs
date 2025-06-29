@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kosmoeye_Api.Application.UseCases.Auth;
 using Kosmoeye_Api.Application.UseCases.Users;
 using Kosmoeye_Api.Domain.Interfaces.Repositories;
 using Kosmoeye_Api.Infrastructure.Persistence.Repositories;
@@ -18,6 +19,7 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<CreateUserHandler>();
+            services.AddScoped<LoginUserHandler>();
 
             return services;
         }
