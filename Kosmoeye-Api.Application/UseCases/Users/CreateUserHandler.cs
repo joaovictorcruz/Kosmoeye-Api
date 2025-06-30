@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kosmoeye_Api.Application.DTOS.Users;
 using Kosmoeye_Api.Domain.Entities;
 using Kosmoeye_Api.Domain.Interfaces.Repositories;
 using BCrypt.Net;
+using Kosmoeye_Api.Application.DTOS.Users.Create;
 
 namespace Kosmoeye_Api.Application.UseCases.Users
 {

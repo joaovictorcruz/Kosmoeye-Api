@@ -22,6 +22,9 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<LoginUserHandler>();
             services.AddScoped<GetAllUsersHandler>();
             services.AddScoped<GetUserByIdHandler>();
+            services.AddScoped<UpdateUserHandler>();
+            services.AddScoped<ChangePasswordHandler>();
+            services.AddScoped<DeleteUserHandler>(); 
 
             return services;
         }

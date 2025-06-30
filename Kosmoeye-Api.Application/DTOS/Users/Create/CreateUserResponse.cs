@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kosmoeye_Api.Application.DTOS.Users
+namespace Kosmoeye_Api.Application.DTOS.Users.Create
 {
     public class CreateUserResponse
     {

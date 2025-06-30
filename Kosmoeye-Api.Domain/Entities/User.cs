@@ -26,6 +26,11 @@ namespace Kosmoeye_Api.Domain.Entities
             PasswordHash = passwordHash;
 
         }
+        public void UpdateUsername(string username)
+        {
+            Username = username;
+        }
+
         public void UpdateProfile(string? bio, string? pictureUrl)
         {
             Bio = bio;
