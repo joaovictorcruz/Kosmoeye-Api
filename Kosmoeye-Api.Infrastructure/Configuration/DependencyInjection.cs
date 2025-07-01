@@ -17,14 +17,17 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
+            // Repositories
             services.AddScoped<IUserRepository, UserRepository>();
+
+            // Handlers
             services.AddScoped<CreateUserHandler>();
             services.AddScoped<LoginUserHandler>();
             services.AddScoped<GetAllUsersHandler>();
             services.AddScoped<GetUserByIdHandler>();
             services.AddScoped<UpdateUserHandler>();
             services.AddScoped<ChangePasswordHandler>();
-            services.AddScoped<DeleteUserHandler>(); 
+            services.AddScoped<DeleteUserHandler>();
 
             return services;
         }
