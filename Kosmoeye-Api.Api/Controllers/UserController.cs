@@ -18,13 +18,6 @@ namespace Kosmoeye_API.Api.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] CreateUserComand command)
-        {
-            var result = await _userService.CreateUserAsync(command);
-            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
-        }
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

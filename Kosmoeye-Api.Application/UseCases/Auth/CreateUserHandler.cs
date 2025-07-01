@@ -8,7 +8,7 @@ using Kosmoeye_Api.Domain.Interfaces.Repositories;
 using BCrypt.Net;
 using Kosmoeye_Api.Application.DTOS.Users.Create;
 
-namespace Kosmoeye_Api.Application.UseCases.Users
+namespace Kosmoeye_Api.Application.UseCases.Auth
 {
     public class CreateUserHandler
     {

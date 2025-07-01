@@ -6,7 +6,6 @@ namespace Kosmoeye_API.Api.Services.Interfaces
 {
     public interface IUserService
     {
-        Task<CreateUserResponse> CreateUserAsync(CreateUserComand command);
         Task<List<GetUserResponse>> GetAllUsersAsync();
         Task<GetUserResponse> GetUserByIdAsync(Guid id);
         Task UpdateUserAsync(UpdateUserCommand command);
