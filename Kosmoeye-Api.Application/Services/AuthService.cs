@@ -14,21 +14,39 @@ namespace Kosmoeye_Api.Application.Services
     {
         private readonly LoginUserHandler _loginUserHandler;
         private readonly CreateUserHandler _createUserHandler;
+        private readonly RefreshTokenHandler _refreshTokenHandler;
+        private readonly RevokeRefreshTokenHandler _revokeRefreshTokenHandler;
 
-        public AuthService(LoginUserHandler loginUserHandler, CreateUserHandler createUserHandler)
+        public AuthService(
+            LoginUserHandler loginUserHandler,
+            CreateUserHandler createUserHandler,
+            RefreshTokenHandler refreshTokenHandler,
+            RevokeRefreshTokenHandler revokeRefreshTokenHandler)
         {
             _loginUserHandler = loginUserHandler;
             _createUserHandler = createUserHandler;
+            _refreshTokenHandler = refreshTokenHandler;
+            _revokeRefreshTokenHandler = revokeRefreshTokenHandler;
         }
 
-        public async Task<LoginUserResponse> LoginAsync(LoginUserCommand command)
+        public async Task<LoginUserResponse> LoginAsync(LoginUserCommand command, string ipAdress)
         {
-            return await _loginUserHandler.Handle(command);
+            return await _loginUserHandler.Handle(command, ipAdress);
         }
 
         public async Task<CreateUserResponse> SignupAsync(CreateUserComand command)
         {
             return await _createUserHandler.Handle(command);
+        }
+
+        public async Task<LoginUserResponse> RefreshTokenAsync(string token, string ipAdress)
+        {
+            return await _refreshTokenHandler.Handle(token, ipAdress);
+        }
+
+        public async Task RevokeRefreshTokenAsync(string token, string ipAddress)
+        {
+            await _revokeRefreshTokenHandler.Handle(token, ipAddress);
         }
     }
 }

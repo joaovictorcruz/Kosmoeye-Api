@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BCrypt.Net;
 using Kosmoeye_Api.Application.DTOS.Auth;
-using Kosmoeye_Api.Domain.Entities;
+using Kosmoeye_Api.Application.Services;
 using Kosmoeye_Api.Domain.Interfaces.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -17,48 +17,44 @@ namespace Kosmoeye_Api.Application.UseCases.Auth
     public class LoginUserHandler
     {
         private readonly IUserRepository _userRepository;
-        private readonly IConfiguration _configuration;
+        private readonly TokenGenerator _jwtService;
+        private readonly IRefreshTokenRepository _refreshTokenRepository;
 
-    public LoginUserHandler(IUserRepository userRepository, IConfiguration configuration)
+        public LoginUserHandler(IUserRepository userRepository, TokenGenerator jwtService, IRefreshTokenRepository refreshTokenRepository)
         {
             _userRepository = userRepository;
-            _configuration = configuration;
+            _jwtService = jwtService;
+            _refreshTokenRepository = refreshTokenRepository;
         }
 
-        public async Task<LoginUserResponse> Handle(LoginUserCommand command)
+        public async Task<LoginUserResponse> Handle(LoginUserCommand command, string ipAddress)
         {
             var user = await _userRepository.GetByEmailAsync(command.Email);
 
-            if (user == null || !BCrypt.Net.BCrypt.Verify(command.Password, user.PasswordHash))
-                throw new UnauthorizedAccessException("Email ou senha inválidos");
-
-            var token = GenerateJwtToken(user);
-
-            return new LoginUserResponse { Token = token };
-        }
-        private string GenerateJwtToken(User user)
-        {
-            var jwtKey = _configuration["Jwt:Key"];
-            var jwtIssuer = _configuration["Jwt:Issuer"];
-
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var claims = new[]
+            if (user == null || !VerifyPassword(command.Password, user.PasswordHash))
             {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Name, user.Username)
-        };
+                throw new UnauthorizedAccessException("Email ou senha inválidos.");
+            }
 
-            var token = new JwtSecurityToken(
-                issuer: jwtIssuer,
-                audience: jwtIssuer,
-                claims: claims,
-                expires: DateTime.UtcNow.AddDays(2),
-                signingCredentials: credentials);
+            var jwtToken = _jwtService.GenerateJwtToken(user);
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var refreshToken = _jwtService.GenerateRefreshToken(ipAddress);
+            refreshToken.UserId = user.Id;
+
+            await _refreshTokenRepository.AddAsync(refreshToken);
+
+            return new LoginUserResponse
+            {
+                JwtToken = jwtToken,
+                RefreshToken = refreshToken.Token,
+                ExpiresAt = refreshToken.ExpiresAt
+            };
         }
+
+        private bool VerifyPassword(string password, string passwordHash)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, passwordHash);
+        }
+
     }
 }

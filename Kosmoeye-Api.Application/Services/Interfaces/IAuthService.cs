@@ -10,7 +10,9 @@ namespace Kosmoeye_Api.Application.Services.Interfaces
 {
     public interface IAuthService
     {
-        Task<LoginUserResponse> LoginAsync(LoginUserCommand command);
+        Task<LoginUserResponse> LoginAsync(LoginUserCommand command, string ipAddress);
         Task<CreateUserResponse> SignupAsync(CreateUserComand command);
+        Task<LoginUserResponse> RefreshTokenAsync(string token, string ipAddress);
+        Task RevokeRefreshTokenAsync(string token, string ipAddress);
     }
 }

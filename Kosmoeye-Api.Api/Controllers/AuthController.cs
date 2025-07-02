@@ -21,7 +21,8 @@ namespace Kosmoeye_API.Api.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
-            var result = await _authService.LoginAsync(command);
+            var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+            var result = await _authService.LoginAsync(command, ipAddress);
             return Ok(result);
         }
 
@@ -30,6 +31,22 @@ namespace Kosmoeye_API.Api.Controllers
         {
             var result = await _authService.SignupAsync(command);
             return CreatedAtAction(nameof(Signup), new { id = result.Id }, result);
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
+        {
+            var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+            var result = await _authService.RefreshTokenAsync(request.RefreshToken, ipAddress);
+            return Ok(result);
+        }
+
+        [HttpPost("revoke-token")]
+        public async Task<IActionResult> RevokeToken([FromBody] RefreshTokenRequest request)
+        {
+            var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+            await _authService.RevokeRefreshTokenAsync(request.RefreshToken, ipAddress);
+            return NoContent();
         }
     }
 }

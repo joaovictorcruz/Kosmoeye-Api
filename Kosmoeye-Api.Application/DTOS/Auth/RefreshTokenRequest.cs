@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Kosmoeye_Api.Application.DTOS.Auth
 {
-    public class LoginUserResponse
+    public class RefreshTokenRequest
     {
-        public string JwtToken { get; set; } = string.Empty;
         public string RefreshToken { get; set; } = string.Empty;
-        public DateTime ExpiresAt { get; set; } 
-
     }
 }

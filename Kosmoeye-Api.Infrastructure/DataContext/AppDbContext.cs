@@ -20,6 +20,7 @@ namespace Kosmoeye_Api.Infrastructure.DataContext
         public DbSet<Like> Likes => Set<Like>();
         public DbSet<Comment> Comments => Set<Comment>();
         public DbSet<Follow> Follows => Set<Follow>();
+        public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -27,6 +28,17 @@ namespace Kosmoeye_Api.Infrastructure.DataContext
             modelBuilder.Entity<User>(entity =>
             {
                 entity.Property(u => u.Username).HasMaxLength(50).IsRequired();
+
+                entity.HasMany(u => u.RefreshTokens)
+                    .WithOne(rt => rt.User)
+                    .HasForeignKey(rt => rt.UserId);
+            });
+
+            modelBuilder.Entity<RefreshToken>(entity =>
+            {
+                entity.HasOne(rt => rt.User)
+                      .WithMany(u => u.RefreshTokens)
+                      .HasForeignKey(rt => rt.UserId);
             });
         }
     }

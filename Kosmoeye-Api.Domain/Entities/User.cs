@@ -15,6 +15,8 @@ namespace Kosmoeye_Api.Domain.Entities
         public string? Bio { get; private set; }
         public string? PictureUrl{ get; private set; }
 
+        public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
+
 
         private User() { } //ef precisa de um construtor vazio
     

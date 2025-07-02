@@ -1,8 +1,13 @@
-using Kosmoeye_Api.Infrastructure.DataContext;
-using Microsoft.EntityFrameworkCore;
-using Kosmoeye_Api.Infrastructure.Configuration;
-using Kosmoeye_API.Api.Middlewares;
+using System.Text;
+using Kosmoeye_Api.Application.Services;
 using Kosmoeye_Api.Application.Services.Configuration;
+using Kosmoeye_Api.Infrastructure.Configuration;
+using Kosmoeye_Api.Infrastructure.DataContext;
+using Kosmoeye_API.Api.Middlewares;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,13 +25,67 @@ builder.Services
     .AddInfrastructure()
     .AddAplicationServices();
 
+builder.Services.AddSingleton<TokenGenerator>();
 
 builder.Configuration.GetSection("Jwt:Key");
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Kosmoeye API", Version = "v1" });
 
+    // Configura o botão de autorização (Bearer)
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    // Requer o token para rotas protegidas
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                },
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header
+            },
+            new List<string>()
+        }
+    });
+});
+
+var jwtKey = builder.Configuration["Jwt:Key"];
+var key = Encoding.UTF8.GetBytes(jwtKey);
+var issuer = builder.Configuration["Jwt:Issuer"];
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false; // Em produção deixar true
+    options.SaveToken = true;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = false,
+        ValidIssuer = issuer,
+        ValidateAudience = false 
+    };
+});
 
 var app = builder.Build();
 
@@ -41,7 +100,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseMiddleware<ExceptionMiddleware>();
+app.UseMiddleware<IpAddressMiddleware>();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

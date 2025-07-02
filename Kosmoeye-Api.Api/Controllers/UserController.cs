@@ -2,6 +2,7 @@
 using Kosmoeye_Api.Application.DTOS.Users.Update;
 using Kosmoeye_Api.Application.UseCases.Users;
 using Kosmoeye_API.Api.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +33,7 @@ namespace Kosmoeye_API.Api.Controllers
             return Ok(user);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(Guid id, [FromBody] UpdateUserCommand command)
         {
@@ -39,7 +41,7 @@ namespace Kosmoeye_API.Api.Controllers
             await _userService.UpdateUserAsync(command);
             return NoContent();
         }
-
+        [Authorize]
         [HttpPut("{id}/change-password")]
         public async Task<IActionResult> ChangePassword(Guid id, [FromBody] ChangePasswordCommand command)
         {
