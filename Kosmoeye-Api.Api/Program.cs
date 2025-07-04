@@ -38,10 +38,11 @@ builder.Services.AddSwaggerGen(c =>
     // Configura o botão de autorização (Bearer)
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
+        Name = "Authorization", 
+        In = ParameterLocation.Header, 
+        Type = SecuritySchemeType.Http, 
+        Scheme = "Bearer", 
+        BearerFormat = "JWT"
     });
 
     // Requer o token para rotas protegidas
@@ -65,8 +66,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var jwtKey = builder.Configuration["Jwt:Key"];
-var key = Encoding.UTF8.GetBytes(jwtKey);
 var issuer = builder.Configuration["Jwt:Issuer"];
+var key = Encoding.UTF8.GetBytes(jwtKey);
 
 builder.Services.AddAuthentication(options =>
 {
@@ -79,11 +80,12 @@ builder.Services.AddAuthentication(options =>
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
+        ValidateIssuer = true,
+        ValidIssuer = issuer,
+        ValidateAudience = false,
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = false,
-        ValidIssuer = issuer,
-        ValidateAudience = false 
+        ClockSkew = TimeSpan.Zero
     };
 });
 
