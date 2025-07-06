@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Kosmoeye_Api.Domain.Entities;
+using Kosmoeye_Api.Domain.Interfaces.Repositories;
+using Kosmoeye_Api.Infrastructure.DataContext;
+
+namespace Kosmoeye_Api.Infrastructure.Persistence.Repositories
+{
+    public class ArtworkRepository : IArtworkRepository
+    {
+        private readonly AppDbContext _context;
+
+        public ArtworkRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task AddAsync(Artwork artwork)
+        {
+            await _context.Artworks.AddAsync(artwork); 
+            await _context.SaveChangesAsync();
+        }
+
+    }
+}

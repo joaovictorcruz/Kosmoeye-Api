@@ -1,0 +1,27 @@
+﻿using Kosmoeye_Api.Application.DTOS.Artwork.Create;
+using Kosmoeye_Api.Application.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Kosmoeye_API.Api.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ArtworkController : ControllerBase
+    {
+        private readonly IArtworkService _artworkService;
+        public ArtworkController(IArtworkService artworkService)
+        {
+            _artworkService = artworkService;
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateArtworkCommand command)
+        {
+            var result = await _artworkService.CreateArtworkAsync(command);
+            return CreatedAtAction(nameof(Create), new {id = result.Id}, result);
+        }
+    }
+}
