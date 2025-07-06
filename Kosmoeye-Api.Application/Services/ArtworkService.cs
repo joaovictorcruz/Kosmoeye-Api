@@ -12,14 +12,27 @@ namespace Kosmoeye_Api.Application.Services
     public class ArtworkService : IArtworkService
     {
         private readonly CreateArtworkHandler _createHandler;
-        public ArtworkService(CreateArtworkHandler createHandler)
+        private readonly GetAllArtworksHandler _getAllHandler;
+        private readonly GetArtworkByIdHandler _getByIdHandler;
+        public ArtworkService(CreateArtworkHandler createHandler, GetAllArtworksHandler getAllHandler, 
+            GetArtworkByIdHandler getByIdHandler)
         {
-            _createHandler = createHandler; 
+            _createHandler = createHandler;
+            _getAllHandler = getAllHandler;
+            _getByIdHandler = getByIdHandler;
         }
 
         public async Task<ArtworkResponse> CreateArtworkAsync(CreateArtworkCommand command)
         {
             return await _createHandler.Handle(command);
+        }
+        public async Task<List<ArtworkResponse>> GetAllArtworksAsync()
+        {
+            return await _getAllHandler.Handle();
+        }
+        public async Task<ArtworkResponse?> GetArtworkByIdAsync(Guid id)
+        {
+            return await _getByIdHandler.Handle(id);
         }
     }
 }

@@ -23,5 +23,26 @@ namespace Kosmoeye_API.Api.Controllers
             var result = await _artworkService.CreateArtworkAsync(command);
             return CreatedAtAction(nameof(Create), new {id = result.Id}, result);
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var artworks = await _artworkService.GetAllArtworksAsync();
+            return Ok(artworks);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var artwork = await _artworkService.GetArtworkByIdAsync(id);
+
+            if (artwork == null)
+                return NotFound(new { message = "Artwork não encontrada." });
+
+            return Ok(artwork);
+        }
+
     }
 }

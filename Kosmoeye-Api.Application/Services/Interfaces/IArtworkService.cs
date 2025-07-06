@@ -10,5 +10,9 @@ namespace Kosmoeye_Api.Application.Services.Interfaces
     public interface IArtworkService
     {
         Task<ArtworkResponse> CreateArtworkAsync(CreateArtworkCommand command);
+        Task<List<ArtworkResponse>> GetAllArtworksAsync();
+        Task<ArtworkResponse?> GetArtworkByIdAsync(Guid id);
+
+
     }
 }
