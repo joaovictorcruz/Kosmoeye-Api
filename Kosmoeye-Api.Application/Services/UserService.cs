@@ -1,5 +1,6 @@
 ﻿using Kosmoeye_Api.Application.DTOS.Users.Create;
 using Kosmoeye_Api.Application.DTOS.Users.Kosmoeye_Api.Application.DTOS.Users;
+using Kosmoeye_Api.Application.DTOS.Users.Search;
 using Kosmoeye_Api.Application.DTOS.Users.Update;
 using Kosmoeye_Api.Application.UseCases.Auth;
 using Kosmoeye_Api.Application.UseCases.Users;
@@ -14,19 +15,22 @@ namespace Kosmoeye_API.Api.Services
         private readonly UpdateUserHandler _updateHandler;
         private readonly ChangePasswordHandler _changePasswordHandler;
         private readonly DeleteUserHandler _deleteHandler;
+        private readonly SearchUserHandler _searchUserHandler;
 
         public UserService(
             GetAllUsersHandler getAllUsersHandler,
             GetUserByIdHandler getUserByIdHandler,
             UpdateUserHandler updateHandler,
             ChangePasswordHandler changePasswordHandler,
-            DeleteUserHandler deleteHandler)
+            DeleteUserHandler deleteHandler,
+            SearchUserHandler searchUserHandler)
         {
             _getAllUsersHandler = getAllUsersHandler;
             _getUserByIdHandler = getUserByIdHandler;
             _updateHandler = updateHandler;
             _changePasswordHandler = changePasswordHandler;
             _deleteHandler = deleteHandler;
+            _searchUserHandler = searchUserHandler;
         }
 
         public async Task<List<GetUserResponse>> GetAllUsersAsync()
@@ -65,5 +69,11 @@ namespace Kosmoeye_API.Api.Services
 
         public async Task DeleteUserAsync(Guid id)
             => await _deleteHandler.Handle(id);
+
+        public async Task<List<SearchUserResponse>> SearchUsersAsync(SearchUserQuery query)
+        {
+            return await _searchUserHandler.Handle(query);
+        }
+
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kosmoeye_Api.Application.DTOS.Artwork.Create;
+using Kosmoeye_Api.Application.DTOS.Artwork.Search;
 using Kosmoeye_Api.Application.Services.Interfaces;
 using Kosmoeye_Api.Application.UseCases.Artworks;
 
@@ -14,12 +15,15 @@ namespace Kosmoeye_Api.Application.Services
         private readonly CreateArtworkHandler _createHandler;
         private readonly GetAllArtworksHandler _getAllHandler;
         private readonly GetArtworkByIdHandler _getByIdHandler;
+        private readonly SearchArtworksHandler _searchArtworksHandler;
+
         public ArtworkService(CreateArtworkHandler createHandler, GetAllArtworksHandler getAllHandler, 
-            GetArtworkByIdHandler getByIdHandler)
+            GetArtworkByIdHandler getByIdHandler, SearchArtworksHandler searchArtworksHandler)
         {
             _createHandler = createHandler;
             _getAllHandler = getAllHandler;
             _getByIdHandler = getByIdHandler;
+            _searchArtworksHandler = searchArtworksHandler;
         }
 
         public async Task<ArtworkResponse> CreateArtworkAsync(CreateArtworkCommand command)
@@ -33,6 +37,10 @@ namespace Kosmoeye_Api.Application.Services
         public async Task<ArtworkResponse?> GetArtworkByIdAsync(Guid id)
         {
             return await _getByIdHandler.Handle(id);
+        }
+        public async Task<List<ArtworkResponse>> SearchArtworksAsync(SearchArtworksQuery query)
+        {
+            return await _searchArtworksHandler.Handle(query);
         }
     }
 }

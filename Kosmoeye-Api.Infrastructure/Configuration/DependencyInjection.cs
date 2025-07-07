@@ -38,11 +38,14 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<UpdateUserHandler>();
             services.AddScoped<ChangePasswordHandler>();
             services.AddScoped<DeleteUserHandler>();
+            services.AddScoped<SearchUserHandler>();
             
             //Artwork
             services.AddScoped<CreateArtworkHandler>();
             services.AddScoped<GetAllArtworksHandler>();
             services.AddScoped<GetArtworkByIdHandler>();
+            services.AddScoped<SearchArtworksHandler>();
+
 
             return services;
         }

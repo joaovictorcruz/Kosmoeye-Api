@@ -12,6 +12,6 @@ namespace Kosmoeye_Api.Domain.Interfaces.Repositories
         Task AddAsync(Artwork artwork);
         Task<List<Artwork>> GetAllAsync();
         Task<Artwork?> GetByIdAsync(Guid id);
-
+        Task<List<Artwork>> SearchAsync(Guid? authorId, string? search, bool? isPaid);
     }
 }

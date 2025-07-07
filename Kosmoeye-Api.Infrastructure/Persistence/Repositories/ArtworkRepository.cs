@@ -31,5 +31,22 @@ namespace Kosmoeye_Api.Infrastructure.Persistence.Repositories
         {
             return await _context.Artworks.FirstOrDefaultAsync(a => a.Id == id);
         }
+        public async Task<List<Artwork>> SearchAsync(Guid? authorId, string? search, bool? isPaid)
+        {
+            var query = _context.Artworks.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(search))
+                query = query.Where(a =>
+                    a.Title.Contains(search) || 
+                    (a.Description != null && a.Description.Contains(search)));
+
+            if (authorId.HasValue)
+                query = query.Where(a => a.AuthorId == authorId);
+
+            if (isPaid.HasValue)
+                query = query.Where(a => a.IsPaid == isPaid);
+
+            return await query.ToListAsync();
+        }
     }
 }

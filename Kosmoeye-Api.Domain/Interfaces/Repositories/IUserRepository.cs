@@ -15,6 +15,6 @@ namespace Kosmoeye_Api.Domain.Interfaces.Repositories
         Task AddAsync(User user);
         Task UpdateAsync(User user);
         Task DeleteAsync(Guid id);
-
+        Task<List<User>> SearchAsync(string username);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Kosmoeye_Api.Application.DTOS.Artwork.Create;
+using Kosmoeye_Api.Application.DTOS.Artwork.Search;
 using Kosmoeye_Api.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,14 @@ namespace Kosmoeye_API.Api.Controllers
                 return NotFound(new { message = "Artwork não encontrada." });
 
             return Ok(artwork);
+        }
+        
+        [AllowAnonymous]
+        [HttpGet("search")]
+        public async Task<IActionResult> Search([FromQuery] SearchArtworksQuery query)
+        {
+            var result = await _artworkService.SearchArtworksAsync(query);
+            return Ok(result);
         }
 
     }

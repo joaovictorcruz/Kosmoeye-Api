@@ -14,6 +14,7 @@ namespace Kosmoeye_Api.Domain.Entities
         public string PasswordHash { get; private set; }
         public string? Bio { get; private set; }
         public string? PictureUrl{ get; private set; }
+        public DateTime CreatedAt { get; private set; }
 
         public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
 

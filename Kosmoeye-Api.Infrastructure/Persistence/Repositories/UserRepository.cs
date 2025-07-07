@@ -55,5 +55,11 @@ namespace Kosmoeye_Api.Infrastructure.Persistence.Repositories
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
+        public async Task<List<User>> SearchAsync(string username)
+        {
+            return await _context.Users
+                .Where(u => u.Username.Contains(username))
+                .ToListAsync();
+        }
     }
 }
