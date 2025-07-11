@@ -1,4 +1,5 @@
 ﻿using Kosmoeye_Api.Application.DTOS.Users.Create;
+using Kosmoeye_Api.Application.DTOS.Users.Search;
 using Kosmoeye_Api.Application.DTOS.Users.Update;
 using Kosmoeye_Api.Application.UseCases.Users;
 using Kosmoeye_API.Api.Services.Interfaces;
@@ -58,5 +59,15 @@ namespace Kosmoeye_API.Api.Controllers
             return NoContent();
         }
 
+        [AllowAnonymous]
+        [HttpGet("search")]
+        public async Task<IActionResult> Search([FromQuery] SearchUserQuery query)
+        {
+            if (string.IsNullOrWhiteSpace(query.Username))
+                return BadRequest(new { message = "Username é obrigatório para busca." });
+
+            var result = await _userService.SearchUsersAsync(query);
+            return Ok(result);
+        }
     }
 }
