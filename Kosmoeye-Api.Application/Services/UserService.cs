@@ -43,7 +43,8 @@ namespace Kosmoeye_API.Api.Services
                 Username = u.Username,
                 Email = u.Email,
                 Bio = u.Bio,
-                PictureUrl = u.PictureUrl
+                PictureUrl = u.PictureUrl,
+                CreatedAt = u.CreatedAt,
             }).ToList();
         }
 

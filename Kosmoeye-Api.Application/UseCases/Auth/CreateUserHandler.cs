@@ -35,7 +35,8 @@ namespace Kosmoeye_Api.Application.UseCases.Auth
             {
                 Id = user.Id,
                 Username = user.Username,
-                Email = user.Email
+                Email = user.Email,
+                CreatedAt = user.CreatedAt,
             };
 
         }

@@ -30,7 +30,8 @@ namespace Kosmoeye_Api.Application.UseCases.Users
                 Username = user.Username,
                 Email = user.Email,
                 Bio = user.Bio,
-                PictureUrl = user.PictureUrl
+                PictureUrl = user.PictureUrl,
+                CreatedAt = user.CreatedAt
             };
         }
     }

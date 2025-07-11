@@ -27,6 +27,7 @@ namespace Kosmoeye_Api.Domain.Entities
             Username = username;
             Email = email;  
             PasswordHash = passwordHash;
+            CreatedAt = DateTime.UtcNow;
 
         }
         public void UpdateUsername(string username)

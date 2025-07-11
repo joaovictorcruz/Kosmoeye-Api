@@ -57,5 +57,6 @@ namespace Kosmoeye_API.Api.Controllers
             await _userService.DeleteUserAsync(id);
             return NoContent();
         }
+
     }
 }
