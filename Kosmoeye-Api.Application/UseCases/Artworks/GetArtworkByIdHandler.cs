@@ -32,6 +32,7 @@ namespace Kosmoeye_Api.Application.UseCases.Artworks
                 IsPaid = artwork.IsPaid,
                 IsDownloadable = artwork.IsDownloadable,
                 Price = artwork.Price,
+                AuthorId = artwork.AuthorId,    
                 CreatedAt = artwork.CreatedAt
             };
         }

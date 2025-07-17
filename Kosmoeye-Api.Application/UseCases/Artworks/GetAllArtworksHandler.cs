@@ -31,6 +31,7 @@ namespace Kosmoeye_Api.Application.UseCases.Artworks
                 IsPaid = a.IsPaid,
                 IsDownloadable = a.IsDownloadable,
                 Price = a.Price,
+                AuthorId = a.AuthorId,
                 CreatedAt = a.CreatedAt
 
             }).ToList();
