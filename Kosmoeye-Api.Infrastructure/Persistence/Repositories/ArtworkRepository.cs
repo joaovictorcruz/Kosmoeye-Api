@@ -48,5 +48,11 @@ namespace Kosmoeye_Api.Infrastructure.Persistence.Repositories
 
             return await query.ToListAsync();
         }
+        public async Task UpdateAsync(Artwork artwork)
+        {
+            _context.Artworks.Update(artwork);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

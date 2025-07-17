@@ -49,5 +49,26 @@ namespace Kosmoeye_Api.Domain.Entities
 
             Price = isPaid ? price : null;
         }
-    }        
+        public void UpdateDetails(string title, string? description, bool isFreeToUse, bool isPaid, decimal? price)
+        {
+            Title = title;
+            Description = description;
+            IsFreeToUse = isFreeToUse;
+            IsPaid = isPaid;
+            IsDownloadable = isFreeToUse;
+
+            if (isPaid)
+            {
+                if (price == null || price <= 0)
+                    throw new Exception("Preço inválido para conteúdo pago.");
+
+                Price = price;
+            }
+            else
+            {
+                Price = null;
+            }
+        }
+
+    }
 }

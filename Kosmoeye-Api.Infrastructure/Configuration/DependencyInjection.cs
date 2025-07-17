@@ -45,6 +45,7 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<GetAllArtworksHandler>();
             services.AddScoped<GetArtworkByIdHandler>();
             services.AddScoped<SearchArtworksHandler>();
+            services.AddScoped<UpdateArtworkHandler>();
 
 
             return services;

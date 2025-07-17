@@ -1,4 +1,5 @@
-﻿using Kosmoeye_Api.Application.DTOS.Users.Create;
+﻿using Kosmoeye_Api.Application.DTOS.Artwork.Update;
+using Kosmoeye_Api.Application.DTOS.Users.Create;
 using Kosmoeye_Api.Application.DTOS.Users.Kosmoeye_Api.Application.DTOS.Users;
 using Kosmoeye_Api.Application.DTOS.Users.Search;
 using Kosmoeye_Api.Application.DTOS.Users.Update;
@@ -75,6 +76,5 @@ namespace Kosmoeye_API.Api.Services
         {
             return await _searchUserHandler.Handle(query);
         }
-
     }
 }

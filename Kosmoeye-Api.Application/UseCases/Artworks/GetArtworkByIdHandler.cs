@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
-using Kosmoeye_Api.Application.DTOS.Artwork.Create;
+using Kosmoeye_Api.Application.DTOS.Artwork;
 using Kosmoeye_Api.Domain.Interfaces.Repositories;
 
 namespace Kosmoeye_Api.Application.UseCases.Artworks
