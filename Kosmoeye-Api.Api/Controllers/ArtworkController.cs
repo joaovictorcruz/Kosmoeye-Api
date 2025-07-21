@@ -67,5 +67,13 @@ namespace Kosmoeye_API.Api.Controllers
             return Ok(updatedArtwork);
         }
 
+        [Authorize]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var userId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            await _artworkService.DeleteArtworkAsync(id, Guid.Parse(userId));
+            return NoContent();
+        }
     }
 }

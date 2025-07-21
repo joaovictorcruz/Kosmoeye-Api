@@ -53,6 +53,15 @@ namespace Kosmoeye_Api.Infrastructure.Persistence.Repositories
             _context.Artworks.Update(artwork);
             await _context.SaveChangesAsync();
         }
+        public async Task DeleteAsync(Guid id)
+        {
+            var artwork = await _context.Artworks.FirstOrDefaultAsync(a => a.Id == id);
 
+            if (artwork == null)
+                throw new KeyNotFoundException("Artwork não encontrada para exclusão.");
+
+            _context.Artworks.Remove(artwork);
+            await _context.SaveChangesAsync();
+        }
     }
 }

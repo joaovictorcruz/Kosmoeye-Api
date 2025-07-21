@@ -17,6 +17,6 @@ namespace Kosmoeye_Api.Application.Services.Interfaces
         Task<ArtworkResponse?> GetArtworkByIdAsync(Guid id);
         Task<List<ArtworkResponse>> SearchArtworksAsync(SearchArtworksQuery query);
         Task<ArtworkResponse> UpdateArtworkAsync(UpdateArtworkCommand command);
-
+        Task DeleteArtworkAsync(Guid id, Guid userId);
     }
 }

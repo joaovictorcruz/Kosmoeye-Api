@@ -19,15 +19,17 @@ namespace Kosmoeye_Api.Application.Services
         private readonly GetArtworkByIdHandler _getByIdHandler;
         private readonly SearchArtworksHandler _searchArtworksHandler;
         private readonly UpdateArtworkHandler _updateHandler;
+        private readonly DeleteArtworkHandler _deleteHandler;
 
         public ArtworkService(CreateArtworkHandler createHandler, GetAllArtworksHandler getAllHandler, 
-            GetArtworkByIdHandler getByIdHandler, SearchArtworksHandler searchArtworksHandler, UpdateArtworkHandler updateHandler)
+            GetArtworkByIdHandler getByIdHandler, SearchArtworksHandler searchArtworksHandler, UpdateArtworkHandler updateHandler, DeleteArtworkHandler deleteHandler)
         {
             _createHandler = createHandler;
             _getAllHandler = getAllHandler;
             _getByIdHandler = getByIdHandler;
             _searchArtworksHandler = searchArtworksHandler;
             _updateHandler = updateHandler;
+            _deleteHandler = deleteHandler;
         }
 
         public async Task<ArtworkResponse> CreateArtworkAsync(CreateArtworkCommand command)
@@ -48,5 +50,7 @@ namespace Kosmoeye_Api.Application.Services
         }
         public async Task<ArtworkResponse> UpdateArtworkAsync(UpdateArtworkCommand command)
          => await _updateHandler.Handle(command);
+        public async Task DeleteArtworkAsync(Guid id, Guid userId)
+        => await _deleteHandler.Handle(id, userId);
     }
 }
