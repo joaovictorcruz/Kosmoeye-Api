@@ -36,5 +36,22 @@ namespace Kosmoeye_API.Api.Controllers
             var comments = await _commentService.GetCommentsByArtworkAsync(artworkId);
             return Ok(comments);
         }
+
+        [AllowAnonymous]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var comment = await _commentService.GetCommentByIdAsync(id);
+            return Ok(comment);
+        }
+
+        [Authorize]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var userId = User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            await _commentService.DeleteCommentAsync(id, Guid.Parse(userId));
+            return NoContent();
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace Kosmoeye_Api.Application.Services.Interfaces
     {
         Task<CommentResponse> CreateCommentAsync(CommentCommand command);
         Task<List<CommentResponse>> GetCommentsByArtworkAsync(Guid artworkId);
+        Task<CommentResponse> GetCommentByIdAsync(Guid id);
+        Task DeleteCommentAsync(Guid id, Guid userId);
     }
 }
