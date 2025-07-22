@@ -28,5 +28,13 @@ namespace Kosmoeye_API.Api.Controllers
             var createdComment = await _commentService.CreateCommentAsync(command);
             return Ok(createdComment);
         }
+
+        [AllowAnonymous]
+        [HttpGet("artwork/{artworkId}")]
+        public async Task<IActionResult> GetByArtwork(Guid artworkId)
+        {
+            var comments = await _commentService.GetCommentsByArtworkAsync(artworkId);
+            return Ok(comments);
+        }
     }
 }

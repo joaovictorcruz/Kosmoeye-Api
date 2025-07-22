@@ -10,5 +10,6 @@ namespace Kosmoeye_Api.Application.Services.Interfaces
     public interface ICommentService
     {
         Task<CommentResponse> CreateCommentAsync(CommentCommand command);
+        Task<List<CommentResponse>> GetCommentsByArtworkAsync(Guid artworkId);
     }
 }

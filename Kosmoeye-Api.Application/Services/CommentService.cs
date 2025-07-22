@@ -12,13 +12,16 @@ namespace Kosmoeye_Api.Application.Services
     public class CommentService : ICommentService
     {
         private readonly CreateCommentHandler _createHandler;
-
-        public CommentService(CreateCommentHandler createHandler)
+        private readonly GetCommentByArtworkHandler _getCommentByArtworkHandler;
+        public CommentService(CreateCommentHandler createHandler, GetCommentByArtworkHandler getCommentByArtworkHandler)
         {
             _createHandler = createHandler;
+            _getCommentByArtworkHandler = getCommentByArtworkHandler;
         }
 
         public async Task<CommentResponse> CreateCommentAsync(CommentCommand command)
             => await _createHandler.Handle(command);
+        public async Task<List<CommentResponse>> GetCommentsByArtworkAsync(Guid artworkId)
+           => await _getCommentByArtworkHandler.Handle(artworkId);
     }
 }

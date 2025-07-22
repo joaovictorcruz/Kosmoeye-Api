@@ -52,6 +52,7 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
 
             //Comment
             services.AddScoped<CreateCommentHandler>();
+            services.AddScoped<GetCommentByArtworkHandler>();
 
             return services;
         }
