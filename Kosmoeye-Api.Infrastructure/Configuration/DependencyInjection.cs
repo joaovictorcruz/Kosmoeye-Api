@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Kosmoeye_Api.Application.Services;
 using Kosmoeye_Api.Application.UseCases.Artworks;
 using Kosmoeye_Api.Application.UseCases.Auth;
+using Kosmoeye_Api.Application.UseCases.Comments;
 using Kosmoeye_Api.Application.UseCases.Users;
 using Kosmoeye_Api.Domain.Interfaces.Repositories;
 using Kosmoeye_Api.Infrastructure.Persistence.Repositories;
@@ -23,6 +24,7 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IArtworkRepository, ArtworkRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
 
             // Handlers
             //Auth
@@ -48,6 +50,8 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<UpdateArtworkHandler>();
             services.AddScoped<DeleteArtworkHandler>();
 
+            //Comment
+            services.AddScoped<CreateCommentHandler>();
 
             return services;
         }

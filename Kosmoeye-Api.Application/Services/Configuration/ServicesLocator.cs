@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kosmoeye_Api.Application.Services.Interfaces;
-using Kosmoeye_Api.Application.UseCases.Artworks;
 using Kosmoeye_API.Api.Services;
 using Kosmoeye_API.Api.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection; 
@@ -18,6 +17,7 @@ namespace Kosmoeye_Api.Application.Services.Configuration
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IArtworkService, ArtworkService>();
+            services.AddScoped<ICommentService, CommentService>();
 
             return services;
         }
