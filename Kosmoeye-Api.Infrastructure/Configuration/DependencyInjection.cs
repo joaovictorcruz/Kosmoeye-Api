@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kosmoeye_Api.Application.Services;
+using Kosmoeye_Api.Application.Services.Interfaces;
 using Kosmoeye_Api.Application.UseCases.Artworks;
 using Kosmoeye_Api.Application.UseCases.Auth;
 using Kosmoeye_Api.Application.UseCases.Comments;
+using Kosmoeye_Api.Application.UseCases.Likes;
 using Kosmoeye_Api.Application.UseCases.Users;
 using Kosmoeye_Api.Domain.Interfaces.Repositories;
 using Kosmoeye_Api.Infrastructure.Persistence.Repositories;
@@ -25,6 +27,7 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IArtworkRepository, ArtworkRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<ILikeRepository, LikeRepository>();
 
             // Handlers
             //Auth
@@ -55,6 +58,10 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<GetCommentByArtworkHandler>();
             services.AddScoped<GetCommentByIdHandler>();
             services.AddScoped<DeleteCommentHandler>();
+
+            //Likes
+            services.AddScoped<LikeHandler>();
+            services.AddScoped<UnlikeHandler>();
 
             return services;
         }

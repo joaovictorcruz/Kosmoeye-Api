@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kosmoeye_Api.Domain.Entities;
+using Kosmoeye_Api.Domain.Interfaces.Repositories;
 using Kosmoeye_Api.Infrastructure.DataContext;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kosmoeye_Api.Infrastructure.Persistence.Repositories
 {
-    public class LikeRepository
+    public class LikeRepository : ILikeRepository
     {
         private readonly AppDbContext _context;
 

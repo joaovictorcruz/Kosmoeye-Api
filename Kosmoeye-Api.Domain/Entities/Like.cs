@@ -11,7 +11,7 @@ namespace Kosmoeye_Api.Domain.Entities
         public Guid Id { get; private set; }
         public Guid UserId { get; private set; }
         public Guid ArtworkId { get; private set; }
-        public DateTime CreatedAt { get; private set; }
+        public DateTime LikedAt { get; private set; }
 
         private Like() { }
 
@@ -20,7 +20,7 @@ namespace Kosmoeye_Api.Domain.Entities
             Id = Guid.NewGuid();
             UserId = userId;
             ArtworkId = artworkId;
-            CreatedAt = DateTime.UtcNow;
+            LikedAt = DateTime.UtcNow;
         }
     }
 }

@@ -8,8 +8,8 @@ namespace Kosmoeye_Api.Application.DTOS.Like
 {
     public class LikeCommand
     {
-        public Guid UserId { get; set; }
         public Guid ArtworkId { get; set; }
+        public Guid UserId { get; set; }
     }
 
 }

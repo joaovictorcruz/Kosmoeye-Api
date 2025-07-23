@@ -135,7 +135,7 @@ namespace Kosmoeye_Api.Infrastructure.Migrations
                     b.Property<Guid>("ArtworkId")
                         .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("LikedAt")
                         .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("UserId")
