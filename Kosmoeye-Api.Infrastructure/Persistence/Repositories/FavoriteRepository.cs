@@ -40,5 +40,16 @@ namespace Kosmoeye_Api.Infrastructure.Persistence.Repositories
             return await _context.FavoriteArtworks
                 .FirstOrDefaultAsync(f => f.UserId == userId && f.ArtworkId == artworkId);
         }
+        public async Task<int> CountByArtworkAsync(Guid artworkId)
+        {
+            return await _context.FavoriteArtworks.CountAsync(f => f.ArtworkId == artworkId);
+        }
+
+        public async Task<List<FavoriteArtwork>> GetByUserIdAsync(Guid userId)
+        {
+            return await _context.FavoriteArtworks
+                .Where(f => f.UserId == userId)
+                .ToListAsync();
+        }
     }
 }

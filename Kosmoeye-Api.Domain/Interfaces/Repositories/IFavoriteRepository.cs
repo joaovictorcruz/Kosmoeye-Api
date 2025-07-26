@@ -12,5 +12,7 @@ namespace Kosmoeye_Api.Domain.Interfaces.Repositories
         Task AddAsync(FavoriteArtwork favorite);
         Task RemoveAsync(Guid userId, Guid artworkId);
         Task<FavoriteArtwork?> GetByUserAndArtworkAsync(Guid userId, Guid artworkId);
+        Task<int> CountByArtworkAsync(Guid artworkId);
+        Task<List<FavoriteArtwork>> GetByUserIdAsync(Guid userId);
     }
 }

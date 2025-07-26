@@ -12,5 +12,7 @@ namespace Kosmoeye_Api.Application.Services.Interfaces
     {
         Task<FavoriteArtworkResponse> AddFavoriteAsync(AddFavoriteCommand command);
         Task RemoveFavoriteAsync(RemoveFavoriteCommand command);
+        Task<int> GetFavoriteCountByArtworkAsync(Guid artworkId);
+        Task<List<FavoriteArtworkResponse>> GetFavoritesByUserAsync(Guid userId);
     }
 }

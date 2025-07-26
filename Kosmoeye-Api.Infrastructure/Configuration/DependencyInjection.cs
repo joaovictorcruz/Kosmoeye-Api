@@ -71,6 +71,8 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             //Favorites
             services.AddScoped<AddFavoriteHandler>();
             services.AddScoped<RemoveFavoriteHandler>();
+            services.AddScoped<GetFavoriteCountByArtworkHandler>();
+            services.AddScoped<GetFavoritesByUserHandler>();
 
             return services;
         }

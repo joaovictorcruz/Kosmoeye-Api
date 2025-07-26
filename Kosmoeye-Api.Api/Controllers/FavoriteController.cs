@@ -35,5 +35,20 @@ namespace Kosmoeye_API.Api.Controllers
             await _favoriteService.RemoveFavoriteAsync(command);
             return NoContent();
         }
+
+        [HttpGet("artwork/{artworkId}/count")]
+        public async Task<IActionResult> GetCountByArtwork(Guid artworkId)
+        {
+            var count = await _favoriteService.GetFavoriteCountByArtworkAsync(artworkId);
+            return Ok(new { count });
+        }
+
+        [HttpGet("me")]
+        public async Task<IActionResult> GetMyFavorites()
+        {
+            var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var favorites = await _favoriteService.GetFavoritesByUserAsync(userId);
+            return Ok(favorites);
+        }
     }
 }
