@@ -9,6 +9,7 @@ using Kosmoeye_Api.Application.UseCases.Artworks;
 using Kosmoeye_Api.Application.UseCases.Auth;
 using Kosmoeye_Api.Application.UseCases.Comments;
 using Kosmoeye_Api.Application.UseCases.Favorites;
+using Kosmoeye_Api.Application.UseCases.Follow;
 using Kosmoeye_Api.Application.UseCases.Likes;
 using Kosmoeye_Api.Application.UseCases.Users;
 using Kosmoeye_Api.Domain.Interfaces.Repositories;
@@ -30,8 +31,9 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<ILikeRepository, LikeRepository>();
             services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+            services.AddScoped<IFollowRepository, FollowRepository>();
 
-        // Handlers
+            // Handlers
             //Auth
             services.AddScoped<CreateUserHandler>();
             services.AddScoped<LoginUserHandler>();
@@ -73,6 +75,10 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<RemoveFavoriteHandler>();
             services.AddScoped<GetFavoriteCountByArtworkHandler>();
             services.AddScoped<GetFavoritesByUserHandler>();
+
+            //Follow
+            services.AddScoped<FollowUserHandler>();
+            services.AddScoped<UnfollowUserHandler>();
 
             return services;
         }
