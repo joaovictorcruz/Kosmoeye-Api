@@ -62,6 +62,9 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             //Likes
             services.AddScoped<LikeHandler>();
             services.AddScoped<UnlikeHandler>();
+            services.AddScoped<GetLikesCountByArtworkHandler>();
+            services.AddScoped<GetLikesByUserHandler>();
+            services.AddScoped<CheckIfUserLikedHandler>();
 
             return services;
         }

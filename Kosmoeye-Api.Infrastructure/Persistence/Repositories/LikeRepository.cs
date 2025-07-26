@@ -45,5 +45,12 @@ namespace Kosmoeye_Api.Infrastructure.Persistence.Repositories
         {
             return await _context.Likes.CountAsync(l => l.ArtworkId == artworkId);
         }
+        public async Task<List<Like>> GetLikesByUserAsync(Guid userId)
+        {
+            return await _context.Likes
+                .Where(l => l.UserId == userId)
+                .ToListAsync();
+        }
+
     }
 }

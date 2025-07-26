@@ -34,5 +34,28 @@ namespace Kosmoeye_API.Api.Controllers
             await _likeService.UnlikeAsync(command);
             return NoContent();
         }
+
+        [HttpGet("artwork/{artworkId}/count")]
+        public async Task<IActionResult> GetCountByArtwork(Guid artworkId)
+        {
+            var count = await _likeService.GetLikeCountByArtworkAsync(artworkId);
+            return Ok(count);
+        }
+
+        [HttpGet("me")]
+        public async Task<IActionResult> GetMyLikes()
+        {
+            var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var likes = await _likeService.GetLikesByUserAsync(userId);
+            return Ok(likes);
+        }
+
+        [HttpGet("artwork/{artworkId}/has-liked")]
+        public async Task<IActionResult> HasUserLiked(Guid artworkId)
+        {
+            var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var liked = await _likeService.HasUserLikedAsync(userId, artworkId);
+            return Ok(new { hasLiked = liked });
+        }
     }
 }

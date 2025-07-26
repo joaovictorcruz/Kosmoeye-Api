@@ -11,5 +11,8 @@ namespace Kosmoeye_Api.Application.Services.Interfaces
     {
         Task<LikeResponse> LikeAsync(LikeCommand command);
         Task UnlikeAsync(UnlikeCommand command);
+        Task<int> GetLikeCountByArtworkAsync(Guid artworkId);
+        Task<List<LikeResponse>> GetLikesByUserAsync(Guid userId);
+        Task<bool> HasUserLikedAsync(Guid userId, Guid artworkId);
     }
 }

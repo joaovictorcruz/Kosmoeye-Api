@@ -13,5 +13,6 @@ namespace Kosmoeye_Api.Domain.Interfaces.Repositories
         Task RemoveAsync(Guid userId, Guid artworkId);
         Task<Like?> GetByUserAndArtworkAsync(Guid userId, Guid artworkId);
         Task<int> CountByArtworkAsync(Guid artworkId);
+        Task<List<Like>> GetLikesByUserAsync(Guid userId);
     }
 }
