@@ -8,6 +8,7 @@ using Kosmoeye_Api.Application.Services.Interfaces;
 using Kosmoeye_Api.Application.UseCases.Artworks;
 using Kosmoeye_Api.Application.UseCases.Auth;
 using Kosmoeye_Api.Application.UseCases.Comments;
+using Kosmoeye_Api.Application.UseCases.Favorites;
 using Kosmoeye_Api.Application.UseCases.Likes;
 using Kosmoeye_Api.Application.UseCases.Users;
 using Kosmoeye_Api.Domain.Interfaces.Repositories;
@@ -22,14 +23,15 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-            // Repositories
+        // Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IArtworkRepository, ArtworkRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<ILikeRepository, LikeRepository>();
+            services.AddScoped<IFavoriteRepository, FavoriteRepository>();
 
-            // Handlers
+        // Handlers
             //Auth
             services.AddScoped<CreateUserHandler>();
             services.AddScoped<LoginUserHandler>();
@@ -65,6 +67,10 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             services.AddScoped<GetLikesCountByArtworkHandler>();
             services.AddScoped<GetLikesByUserHandler>();
             services.AddScoped<CheckIfUserLikedHandler>();
+
+            //Favorites
+            services.AddScoped<AddFavoriteHandler>();
+            services.AddScoped<RemoveFavoriteHandler>();
 
             return services;
         }

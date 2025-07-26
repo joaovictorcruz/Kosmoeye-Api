@@ -19,6 +19,7 @@ namespace Kosmoeye_Api.Application.Services.Configuration
             services.AddScoped<IArtworkService, ArtworkService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<ILikeService, LikeService>();
+            services.AddScoped<IFavoriteService, FavoriteService>();
 
             return services;
         }

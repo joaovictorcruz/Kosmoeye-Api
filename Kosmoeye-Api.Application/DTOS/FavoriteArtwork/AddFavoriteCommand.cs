@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kosmoeye_Api.Application.DTOS.FavoriteArtworkResponse
 {
-    public class FavoriteArtworkCommand
+    public class AddFavoriteCommand
     {
         public Guid UserId { get; set; }
         public Guid ArtworkId { get; set; }
