@@ -4,6 +4,6 @@ root = true
 [*]
 indent_style = space
 
-# Xml files
+# Xml file
 [*.xml]
 indent_size = 2
