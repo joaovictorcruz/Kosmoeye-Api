@@ -77,6 +77,20 @@ http://localhost:8080/swagger
 
 A API estará disponível localmente na porta `8080`.
 
+## 🔐 Autenticação e Acesso
+
+Alguns endpoints são protegidos e exigem autenticação via **Bearer Token**. Para utilizá-los:
+
+1. Faça login via endpoint de autenticação (`/auth/login`).
+2. Copie o **access token** retornado.
+3. No Swagger ou em ferramentas como Postman, adicione o token no cabeçalho:
+
+```
+Authorization: Bearer {seu_token_aqui}
+```
+
+⚠️ **Importante**: esteja logado para acessar os endpoints protegidos, como favoritos, curtidas, comentários e seguidores.
+
 ---
 
 ## 🛠️ Tecnologias
