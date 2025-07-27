@@ -1,12 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-COPY *.sln .
-COPY Kosmoeye-Api.*/*.csproj ./
-
-RUN dotnet restore
-
 COPY . .
+
+RUN dotnet restore Kosmoeye-Api.sln
+
 WORKDIR /app/Kosmoeye-Api.Api
 RUN dotnet publish -c Release -o /out
 
@@ -16,7 +14,6 @@ WORKDIR /app
 COPY --from=build /out ./
 
 ENV ASPNETCORE_URLS=http://+:80
-
 EXPOSE 80
 
-ENTRYPOINT ["dotnet", "Kosmoeye-API.Api.dll"]
+ENTRYPOINT ["dotnet", "Kosmoeye-Api.Api.dll"]
