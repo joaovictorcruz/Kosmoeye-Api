@@ -18,13 +18,6 @@ services:
     networks:
       - kosmoeye-net
 
-volumes:
-  db_data:
-
-networks:
-  kosmoeye-net:
-    driver: bridge
-
   api:
     build:
       context: .
@@ -37,12 +30,13 @@ networks:
       - db
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=server=db;port=3306;database=kosmoeye_db;user=kosmoeye;password=kosmoeye123;
     networks:
       - kosmoeye-net
 
-  volumes:
+volumes:
   db_data:
 
-  networks:
-    kosmoeye-net:
-      driver: bridge
+networks:
+  kosmoeye-net:
+    driver: bridge
