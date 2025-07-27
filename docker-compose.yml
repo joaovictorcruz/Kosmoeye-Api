@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   db:
@@ -11,9 +11,10 @@ services:
       MYSQL_USER: kosmoeye
       MYSQL_PASSWORD: kosmoeye123
     ports:
-      - '3306:3306'
+      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./docker/mysql-init:/docker-entrypoint-initdb.d
     networks:
       - kosmoeye-net
 
@@ -23,3 +24,25 @@ volumes:
 networks:
   kosmoeye-net:
     driver: bridge
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kosmoeye-api
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - kosmoeye-net
+
+  volumes:
+  db_data:
+
+  networks:
+    kosmoeye-net:
+      driver: bridge
