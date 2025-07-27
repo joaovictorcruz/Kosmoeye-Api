@@ -5,7 +5,7 @@ VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{A066CD29-DFC0-4B03-9484-777760A285A4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{A066CD29-DFC0-4B03-9484-777760A285A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{28BE58D9-D6CA-493D-9463-F7D5EEA5F354}"
 EndProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{004B130F-7927-46AF-8706-1F23295A6022}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kosmoeye-API.Api", "Kosmoeye-API.Api\Kosmoeye-API.Api.csproj", "{5E19AB89-E885-4D7F-ABEF-8477E2BBCB04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kosmoeye-Api.Api", "Kosmoeye-Api.Api\Kosmoeye-Api.Api.csproj", "{5E19AB89-E885-4D7F-ABEF-8477E2BBCB04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kosmoeye-Api.Application", "Kosmoeye-Api.Application\Kosmoeye-Api.Application.csproj", "{45EBCC52-7F13-4C66-89E6-980CA3C2D1FA}"
 EndProject
