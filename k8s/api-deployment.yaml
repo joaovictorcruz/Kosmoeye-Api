@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kosmoeye-api
+  labels:
+    app: kosmoeye-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kosmoeye-api
+  template:
+    metadata:
+      labels:
+        app: kosmoeye-api
+    spec:
+      containers:
+        - name: kosmoeye-api
+          image: joaovcrz/kosmoeye-api:version1
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Development"
+            - name: ConnectionStrings__DefaultConnection
+              value: "server=mysql-service;port=3306;database=kosmoeye_db;user=kosmoeye;password=kosmoeye123;"
