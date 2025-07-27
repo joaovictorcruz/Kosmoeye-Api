@@ -11,5 +11,8 @@ namespace Kosmoeye_Api.Application.Services.Interfaces
     {
         Task<FollowResponse> FollowAsync(FollowUserCommand command);
         Task UnfollowAsync(UnfollowUserCommand command);
+        Task<List<FollowResponse>> GetFollowersAsync(Guid userId);
+        Task<List<FollowResponse>> GetFollowingAsync(Guid userId);
+        Task<UserFollowInfoResponse> GetFollowInfoAsync(Guid userId);
     }
 }

@@ -34,5 +34,30 @@ namespace Kosmoeye_API.Api.Controllers
             await _followService.UnfollowAsync(command);
             return NoContent();
         }
+
+        [HttpGet("followers/me")]
+        [Authorize]
+        public async Task<IActionResult> GetFollowers()
+        {
+            var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var followers = await _followService.GetFollowersAsync(userId);
+            return Ok(followers);
+        }
+
+        [HttpGet("following/me")]
+        [Authorize]
+        public async Task<IActionResult> GetFollowing()
+        {
+            var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var following = await _followService.GetFollowingAsync(userId);
+            return Ok(following);
+        }
+
+        [HttpGet("user/{userId}/count")]
+        public async Task<IActionResult> GetFollowInfo(Guid userId)
+        {
+            var info = await _followService.GetFollowInfoAsync(userId);
+            return Ok(info);
+        }
     }
 }

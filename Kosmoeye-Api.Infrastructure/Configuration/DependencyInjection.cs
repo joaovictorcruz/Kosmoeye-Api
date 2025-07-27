@@ -79,6 +79,9 @@ namespace Kosmoeye_Api.Infrastructure.Configuration
             //Follow
             services.AddScoped<FollowUserHandler>();
             services.AddScoped<UnfollowUserHandler>();
+            services.AddScoped<GetFollowersHandler>();
+            services.AddScoped<GetFollowInfoHandler>();
+            services.AddScoped<GetFollowingHandler>();
 
             return services;
         }

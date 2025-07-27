@@ -13,11 +13,22 @@ namespace Kosmoeye_Api.Application.Services
     {
         private readonly FollowUserHandler _followHandler;
         private readonly UnfollowUserHandler _unfollowHandler;
+        private readonly GetFollowersHandler _followersHandler;
+        private readonly GetFollowingHandler _followingHandler;
+        private readonly GetFollowInfoHandler _infoHandler;
 
-        public FollowService(FollowUserHandler followHandler, UnfollowUserHandler unfollowHandler)
+        public FollowService(
+            FollowUserHandler followHandler,
+            UnfollowUserHandler unfollowHandler,
+            GetFollowersHandler followersHandler,
+            GetFollowingHandler followingHandler,
+            GetFollowInfoHandler infoHandler)
         {
             _followHandler = followHandler;
             _unfollowHandler = unfollowHandler;
+            _followersHandler = followersHandler;
+            _followingHandler = followingHandler;
+            _infoHandler = infoHandler;
         }
 
         public async Task<FollowResponse> FollowAsync(FollowUserCommand command)
@@ -25,5 +36,15 @@ namespace Kosmoeye_Api.Application.Services
 
         public async Task UnfollowAsync(UnfollowUserCommand command)
             => await _unfollowHandler.Handle(command);
+
+        public async Task<List<FollowResponse>> GetFollowersAsync(Guid userId)
+            => await _followersHandler.Handle(userId);
+
+        public async Task<List<FollowResponse>> GetFollowingAsync(Guid userId)
+            => await _followingHandler.Handle(userId);
+
+        public async Task<UserFollowInfoResponse> GetFollowInfoAsync(Guid userId)
+            => await _infoHandler.Handle(userId);
+
     }
 }
