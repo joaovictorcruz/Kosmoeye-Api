@@ -19,9 +19,7 @@ services:
       - kosmoeye-net
 
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: joaovcrz/kosmoeye-api:version1
     container_name: kosmoeye-api
     restart: always
     ports:
